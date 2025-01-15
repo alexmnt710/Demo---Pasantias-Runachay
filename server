@@ -1,0 +1,98 @@
+#!/bin/bash
+
+docker info > /dev/null 2>&1
+
+# Ensure that Docker is running...
+if [ $? -ne 0 ]; then
+    echo "Docker is not running."
+    exit 1
+fi
+
+base_path=~/runaserver
+app_base_path=$base_path/html
+app_conf_path=$base_path/docker
+
+original_path=$(pwd)
+container_base=/var/www/html
+container_path=${original_path/$app_base_path/$container_base}
+
+cd $app_conf_path
+
+start() {
+    echo "Iniciando Docker RUNACHAY..."
+    docker-compose up -d
+}
+
+stop(){
+    echo "Deteniendo Docker RUNACHAY...."
+    docker-compose down
+}
+
+status(){
+    echo "Mostrando estado Docker RUNACHAY...."
+    docker-compose ps
+}
+
+build() {
+    echo "Iniciando Docker RUNACHAY..."
+    docker-compose up -d --build
+}
+
+# composer(){
+#     YA NO USAR
+#     docker-compose -f ../../docker/docker-compose.yml run --rm composer composer install
+#     VERSION MEJORADA
+#     docker-compose -f ../../docker/docker-compose.yml run --rm php composer --version
+
+#     docker-compose run --rm composer --volume $PWD:/app composer install
+#     docker run --rm -v $(pwd):/app composer install
+# }
+
+# app(){
+#     docker-compose run --rm -w $dockerpath php $2 $3 $4
+# }
+
+
+# echo '########################################################'
+# echo '#                DOCKER RUNACHAY                       #'
+# echo '########################################################'
+# echo ""
+# echo ""
+
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    rebuild)
+        stop
+        build
+        ;;
+    status)
+        status
+        ;;
+    run)
+        # EXECUTE COMMANDS (php artisan or composer or git) 
+        # EXAMPLE:
+        # ~/servidor/server run composer install author/package...
+        # ~/servidor/server run php artisan...
+        docker-compose run --rm -w $container_path php $2 $3 $4 $5 $6 $7 $8 $9 $10 $11 $12 $13 $14 $15
+        ;;
+    check-version)
+        cd $base_path
+        git pull
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|status|restart|rebuild|run|check-version}"
+        exit 1
+        ;;
+esac
+
+exit 0

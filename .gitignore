@@ -1,0 +1,7 @@
+html/*
+!html/index.php
+!html/filemanager/
+html/filemanager/adminer.sql*
+docker/mysql/*
+!docker/mysql/Empty
+.DS_store
