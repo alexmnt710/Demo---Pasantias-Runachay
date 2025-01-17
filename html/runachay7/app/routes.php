@@ -14,7 +14,28 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 
-Route::get('/', function()
+
+Route::get('/',
+	'SendMessageController@showWelcome'
+);
+
+Route::post('/send-mensage', function()
 {
-	return View::make('hello');
+
+	$mensage = Input::get('mensage');
+	return View::make('hello', array('mensage' => $mensage));
 });
+
+
+
+//para la demo de Whatsapp
+Route::get('/demo-whs', function()
+{
+
+	return View::make('wsa');
+});
+
+Route::post('/send-mensage-whs',
+	'SendMessageController@sendMensage'
+
+);
