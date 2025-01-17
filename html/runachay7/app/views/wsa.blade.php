@@ -49,6 +49,9 @@
         }
         .container_edit{
             padding: 10px;
+            border: 5px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 0px;
         }
         .edit_checkbox{
             margin-top: 10px;
@@ -69,28 +72,76 @@
         .ms-10{
             margin: 10px;
         }
+        .file-container {
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            padding: 10px;
+            width: 100%; 
+            max-width: 300px; 
+            margin: 0 auto; 
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: 10px; 
+            border-radius: 5px;
+            padding: 5px;
+            max-width: 400px; 
+        }
+
+        .input-group label {
+            font-weight: bold;
+            white-space: nowrap; 
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 8px;
+            width: 150px !important;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .input-group select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .form-number::-webkit-inner-spin-button,
+        .form-number::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+        }
+        .mb-10{
+            margin-bottom: 10px;
+        }
+        .mt-10{
+            margin-top: 10px;
+        }
 	</style>
 </head>
 <body>  
-        <h1>Demo de Whatsapp</h1>
+        <h1 class="mb-10" >Demo de Whatsapp</h1>
         <div id="app">
-            <div class="container container_edit border_r " >
+            <div class="container container_edit  " >
                 <form action="send-mensage-whs"  method="POST" enctype="multipart/form-data" @submit="concatenarNumero">
                     <div class="row">
-                        <div class="col-xs-6 col-md-4">
+                        <div class="col-xs-8 col-md-8">
                             <!-- seleccion del numero -->
-                            <div>
-                                Numero: <input type="number" v-model="numero" min="1"  step="1" class="input-numero">
+                            <div class="input-group">
+                                <label for="exampleInputName2">Numero:</label>
+                                <input type="number" v-model="numero" min="1" pattern="\d{1,9}" maxlength="9" @input="validarMaximo"  class="form-number">
                                 <select v-model="codigoSeleccionado" class="selector-pais">
                                     <option v-for="pais in paises" :value="pais.codigo">
                                         @{{ pais.bandera }} @{{ pais.nombre }} (@{{ pais.codigo }})
                                     </option>
                                 </select>
-                                <input type="hidden" name="telefono" :value="numeroCompleto">
                             </div>
                             <!-- seleccion de un input -->
-                            <div class="border_y">
-                                <div class="border_b flex-justify-content-start ms-10" >
+                            <div >
+                                <div class=" flex-justify-content-start ms-10" >
                                     <label class="edit_checkbox ">
                                         <input type="checkbox" v-model="opciones.imagen">
                                         <div>
@@ -98,25 +149,59 @@
                                             Imagen
                                         </div>
                                     </label>
+                                    <div class="file-container">
+                                            <input v-if="opciones.imagen" type="file" v-model="link" placeholder="Ingrese el link" >
+                                    </div>
                                 </div>
-                                <label>
-                                    <input type="checkbox" v-model="opciones.texto"> Texto
-                                </label>
-                                <label>
-                                    <input type="checkbox" v-model="opciones.mensajeLink"> Mensaje con Link
-                                </label>
-                                <input v-if="opciones.mensajeLink" type="text" v-model="link" placeholder="Ingrese el link" class="extra-input">
-                                <label>
-                                    <input type="checkbox" v-model="opciones.mensajeDocumento"> Mensaje con Documento
-                                </label>
-                                <input v-if="opciones.mensajeDocumento" type="file" @change="subirDocumento" class="extra-input">
+
+                                <div class="flex-justify-content-start ms-10" >
+                                    <label class="edit_checkbox" >
+                                        <input type="checkbox" v-model="opciones.texto">
+                                        <div>
+                                            <span class="glyphicon glyphicon-italic" aria-hidden="true"></span>
+                                            Texto
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div class="flex-justify-content-start ms-10">
+                                    <label class="edit_checkbox" >
+                                        <input type="checkbox" v-model="opciones.mensajeLink"> 
+                                        <div>
+                                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                            Mensaje con Link
+                                        </div>
+                                    </label>
+                                    <div class="file-container">
+                                        <input v-if="opciones.mensajeLink" type="text" v-model="link" placeholder="Ingrese el link" class="extra-input">
+                                    </div>
+                                </div>
+
+                                <div class="flex-justify-content-start ms-10">
+                                    <label class="edit_checkbox" >
+                                        <input type="checkbox" v-model="opciones.mensajeDocumento">
+                                        <div>
+                                            <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>
+                                            Mensaje con Documento
+                                        </div>
+                                    </label>
+                                    <div class="file-container">
+                                    <input v-if="opciones.mensajeDocumento" type="file" @change="subirDocumento" class="extra-input">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-xs-6 col-md-4">
-                            <p>Numero:  + @{{ numeroCompleto }} </p>
+                        <div class="col-xs-4 col-md-4">
+                            <div class="mt-10">
+                                <p>Numero:  + @{{ numeroCompleto }} </p>
+                            </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn-enviar">Enviar</button>
+                    <button type="submit" class="btn btn-default">
+                        Enviar
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+
+                    </button>
                 </form>
             </div>
         </div>
@@ -133,7 +218,7 @@
             data: {
                 message: 'Hola, Vue 2.6 en Laravel Blade!',
                 numero:'',
-                codigoSeleccionado: '+34',
+                codigoSeleccionado: '+593',
                 opciones:{
                     imagen: false,
                     texto: false,
@@ -170,6 +255,11 @@
                 },
                 concatenarNumero() {
                     document.querySelector('input[name="telefono"]').value = this.numeroCompleto;
+                },
+                validarMaximo() {
+                    if (this.numero.length > 9) {
+                        this.numero = this.numero.slice(0, 9);
+                    }
                 }
             }
         });
