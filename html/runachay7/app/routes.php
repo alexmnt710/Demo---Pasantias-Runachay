@@ -36,6 +36,6 @@ Route::get('/demo-whs', function()
 });
 
 Route::post('/send-mensage-whs',
-	'SendMessageController@sendMensage'
+	'BotWhatsappController@sendMensageImage'
 
 );
