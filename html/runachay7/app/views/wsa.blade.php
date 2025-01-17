@@ -150,7 +150,7 @@
                                         </div>
                                     </label>
                                     <div class="file-container">
-                                            <input v-if="opciones.imagen" type="file" v-model="link" placeholder="Ingrese el link" >
+                                            <input v-if="opciones.imagen" type="file" v-model="link" @change="subirDocumento" placeholder="Ingrese el link" >
                                     </div>
                                 </div>
 
@@ -173,7 +173,7 @@
                                         </div>
                                     </label>
                                     <div class="file-container">
-                                        <input v-if="opciones.mensajeLink" type="text" v-model="link" placeholder="Ingrese el link" class="extra-input">
+                                        <input v-if="opciones.mensajeLink" type="text" v-model="link" @change="subirLink" placeholder="Ingrese el link" class="extra-input">
                                     </div>
                                 </div>
 
@@ -205,6 +205,7 @@
                 </form>
             </div>
         </div>
+        
 		@if(Session::has('success'))
             <div class="alert alert-success">
                 {{ Session::get('success') }}
@@ -252,6 +253,9 @@
             methods:{
                 subirDocumento(event) {
                     this.documento = event.target.files[0] ? event.target.files[0].name : "";
+                },
+                subirLink(event) {
+                    this.link = event.target.value;
                 },
                 concatenarNumero() {
                     document.querySelector('input[name="telefono"]').value = this.numeroCompleto;
