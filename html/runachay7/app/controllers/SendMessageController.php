@@ -25,7 +25,9 @@ class SendMessageController extends BaseController {
 
 	public function sendMensage()
 	{
-        return Redirect::to('/demo-whs')->with('success', 'Mensaje enviado correctamente.');
+		$telefono = Input::get('telefono');
+
+		return Redirect::to('/demo-whs')->with('success', 'Mensaje enviado correctamente al número: ' . $telefono);
 	}
 
 }

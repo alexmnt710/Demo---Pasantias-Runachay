@@ -47,29 +47,58 @@
         .border_g{
             border: 5px solid yellow;
         }
+        .container_edit{
+            padding: 10px;
+        }
+        .edit_checkbox{
+            margin-top: 10px;
+            margin-right: 10px;
+            padding:10px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            background-color: #f9f9f9;
+        }
+        .flex-justify-content-end{
+            display: flex;
+            justify-content: flex-end;
+        }
+        .flex-justify-content-start{
+            display: flex;
+            justify-content: start;
+        }
+        .ms-10{
+            margin: 10px;
+        }
 	</style>
 </head>
 <body>  
         <h1>Demo de Whatsapp</h1>
         <div id="app">
-            <div class="container" >
-                <form action="send-mensage-whs"  method="POST" enctype="multipart/form-data">
+            <div class="container container_edit border_r " >
+                <form action="send-mensage-whs"  method="POST" enctype="multipart/form-data" @submit="concatenarNumero">
                     <div class="row">
                         <div class="col-xs-6 col-md-4">
                             <!-- seleccion del numero -->
                             <div>
-                                Numero: <input type="number" v-model="numero" min="1" max="100" step="1" class="input-numero">
+                                Numero: <input type="number" v-model="numero" min="1"  step="1" class="input-numero">
                                 <select v-model="codigoSeleccionado" class="selector-pais">
                                     <option v-for="pais in paises" :value="pais.codigo">
                                         @{{ pais.bandera }} @{{ pais.nombre }} (@{{ pais.codigo }})
                                     </option>
                                 </select>
+                                <input type="hidden" name="telefono" :value="numeroCompleto">
                             </div>
                             <!-- seleccion de un input -->
-                            <div>
-                                <label>
-                                    <input type="checkbox" v-model="opciones.imagen"> Imagen
-                                </label>
+                            <div class="border_y">
+                                <div class="border_b flex-justify-content-start ms-10" >
+                                    <label class="edit_checkbox ">
+                                        <input type="checkbox" v-model="opciones.imagen">
+                                        <div>
+                                            <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                                            Imagen
+                                        </div>
+                                    </label>
+                                </div>
                                 <label>
                                     <input type="checkbox" v-model="opciones.texto"> Texto
                                 </label>
@@ -84,7 +113,7 @@
                             </div>
                         </div>
                         <div class="col-xs-6 col-md-4">
-                            <p>Numero: @{{codigoSeleccionado}}  @{{ numero }} </p>
+                            <p>Numero:  + @{{ numeroCompleto }} </p>
                         </div>
                     </div>
                     <button type="submit" class="btn-enviar">Enviar</button>
@@ -129,9 +158,18 @@
                     { nombre: "India", codigo: "+91", bandera: "🇮🇳" }
                 ]
             },
+            computed: {
+                numeroCompleto() {
+                    console.log(this.codigoSeleccionado + this.numero);
+                    return this.codigoSeleccionado.replace("+", "") + this.numero;
+                }
+            },
             methods:{
                 subirDocumento(event) {
                     this.documento = event.target.files[0] ? event.target.files[0].name : "";
+                },
+                concatenarNumero() {
+                    document.querySelector('input[name="telefono"]').value = this.numeroCompleto;
                 }
             }
         });
