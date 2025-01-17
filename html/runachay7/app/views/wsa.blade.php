@@ -131,13 +131,13 @@
                         <div class="col-xs-8 col-md-8">
                             <!-- seleccion del numero -->
                             <div class="input-group">
-                                <label for="exampleInputName2">Numero:</label>
-                                <input type="number" v-model="numero" min="1" pattern="\d{1,9}" maxlength="9" @input="validarMaximo"  class="form-number">
                                 <select v-model="codigoSeleccionado" class="selector-pais">
                                     <option v-for="pais in paises" :value="pais.codigo">
                                         @{{ pais.bandera }} @{{ pais.nombre }} (@{{ pais.codigo }})
                                     </option>
                                 </select>
+                                <label for="exampleInputName2">Numero:</label>
+                                <input type="number" v-model="numero" min="1" pattern="\d{1,9}" maxlength="9" @input="validarMaximo"  class="form-number">
                             </div>
                             <!-- seleccion de un input -->
                             <div >
