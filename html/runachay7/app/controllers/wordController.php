@@ -23,39 +23,44 @@ class WordController extends BaseController
                 return Response::json(['error' => 'Error en la subida del archivo. Asegúrate de que sea un archivo Word válido.'], 400);
             }
 
-            // Definir la ruta de almacenamiento dentro de 'public'
+            // Crear directorio si no existe
             $storagePath = public_path('uploads');
             if (!file_exists($storagePath)) {
                 mkdir($storagePath, 0777, true);
             }
 
-            // Guardar el archivo con un nombre único
-            $filename = time() . '-' . $file->getClientOriginalName();
+            // Guardar archivo con un nombre único
+            $filename = time() . '-' . preg_replace('/\s+/', '_', $file->getClientOriginalName());
             $filePath = $storagePath . '/' . $filename;
             $file->move($storagePath, $filename);
 
-            // Reemplazar variables en la plantilla
+            if (!file_exists($filePath)) {
+                return Response::json(['error' => 'No se pudo guardar el archivo correctamente.'], 500);
+            }
+
+            // Reemplazar variables en el documento
             $processedFilePath = $this->replaceVariablesInDocument($filePath, $userData);
 
-            // Generar URL de descarga
             return Response::json([
                 'message' => 'Documento generado correctamente.',
                 'download_link' => url('uploads/' . basename($processedFilePath))
             ]);
 
         } catch (\Exception $e) {
+            Log::error("Error en la subida del documento: " . $e->getMessage());
             return Response::json(['error' => 'Error interno: ' . $e->getMessage()], 500);
         }
     }
+
     public function replaceVariablesInDocument($filePath, $userData) {
         try {
-            $templateProcessor = new TemplateProcessor($filePath);
+            $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($filePath);
     
             // Obtener variables detectadas en el documento
             $variables = $templateProcessor->getVariables();
-            Log::info('Variables detectadas en la plantilla:', $variables);
+            Log::info('📌 Variables detectadas en la plantilla:', $variables);
     
-            // Diccionario de reemplazo basado en variables encontradas
+            // Diccionario de reemplazo
             $replacements = [
                 'user.period' => $userData['period'] ?? '',
                 'userperiod' => $userData['period'] ?? '',
@@ -67,35 +72,77 @@ class WordController extends BaseController
             ];
     
             foreach ($variables as $variable) {
-                if (isset($replacements[$variable])) {
-                    Log::info("Reemplazando: {$variable} → {$replacements[$variable]}");
-                    $templateProcessor->setValue($variable, $replacements[$variable]);
+                $normalizedVariable = strtolower(trim($variable));
+    
+                if (isset($replacements[$normalizedVariable])) {
+                    Log::info("🔄 Reemplazando: {$variable} → {$replacements[$normalizedVariable]}");
+                    $templateProcessor->setValue($variable, $replacements[$normalizedVariable]);
                 } else {
-                    Log::warning("Variable detectada en Word pero no encontrada en PHP: {$variable}");
+                    Log::warning("⚠️ Variable detectada pero sin reemplazo en PHP: {$variable}");
                 }
             }
     
-            // Guardar temporalmente el documento
+            // ✅ Manejo de tablas
+            $this->replaceTableVariables($templateProcessor, $replacements);
+    
+            // Guardar documento procesado
             $processedFilePath = public_path('uploads/' . time() . '-processed.docx');
             $templateProcessor->saveAs($processedFilePath);
     
-            // Verificar si el archivo se generó correctamente
             if (!$this->isValidDocx($processedFilePath)) {
-                Log::warning("Documento potencialmente corrupto, intentando reemplazo forzado.");
+                Log::warning("⚠️ Documento potencialmente corrupto, aplicando reemplazo forzado...");
                 $this->forceReplaceInDocx($processedFilePath, $replacements);
             }
     
-            Log::info("Documento generado correctamente en: {$processedFilePath}");
+            Log::info("✅ Documento generado correctamente en: {$processedFilePath}");
             return $processedFilePath;
     
         } catch (\Exception $e) {
-            Log::error("Error al generar documento: " . $e->getMessage());
-            return Response::json(['error' => 'Error al generar documento: ' . $e->getMessage()], 500);
+            Log::error("❌ Error al procesar el documento: " . $e->getMessage());
+            return Response::json(['error' => 'Error al procesar el documento: ' . $e->getMessage()], 500);
         }
     }
     
     /**
-     * Verifica si un archivo .docx es válido usando ZipArchive.
+     * ✅ Reemplazo de Variables dentro de Tablas en el DOCX.
+     */
+    private function replaceTableVariables($filePath, $replacements) {
+        try {
+            $zip = new \ZipArchive;
+    
+            if ($zip->open($filePath) === TRUE) {
+                $xml = $zip->getFromName('word/document.xml');
+    
+                if (!$xml) {
+                    Log::error("⚠️ No se pudo leer el XML del documento.");
+                    return;
+                }
+    
+                // Buscar y reemplazar variables dentro de tablas
+                foreach ($replacements as $key => $value) {
+                    $pattern = '/\$\{\s*' . preg_quote($key, '/') . '\s*\}/';
+                    $xml = preg_replace($pattern, $value, $xml);
+                }
+    
+                // Guardar cambios en el documento
+                $zip->deleteName('word/document.xml');
+                $zip->addFromString('word/document.xml', $xml);
+                $zip->close();
+                Log::info("✅ Variables en tablas reemplazadas correctamente.");
+    
+            } else {
+                Log::error("❌ No se pudo abrir el archivo DOCX.");
+            }
+    
+        } catch (\Exception $e) {
+            Log::error("⚠️ Error al reemplazar variables en tabla: " . $e->getMessage());
+        }
+    }
+    
+    
+
+    /**
+     * ✅ Verifica si un archivo .docx es válido usando ZipArchive.
      */
     private function isValidDocx($filePath) {
         $zip = new \ZipArchive;
@@ -106,23 +153,26 @@ class WordController extends BaseController
         }
         return false;
     }
-    
+
     /**
-     * Reemplazo forzado de variables en el XML del DOCX.
+     * ✅ Reemplazo forzado de variables en el XML del DOCX sin dañar la estructura.
      */
     private function forceReplaceInDocx($filePath, $replacements) {
         $zip = new \ZipArchive;
         if ($zip->open($filePath) === TRUE) {
             $xml = $zip->getFromName('word/document.xml');
+
+            // Hacer reemplazo seguro en XML
             foreach ($replacements as $key => $value) {
                 $pattern = '/\$\{\s*' . preg_quote($key, '/') . '\s*\}/';
                 $xml = preg_replace($pattern, $value, $xml);
             }
+
+            // Actualizar documento sin corromper
             $zip->deleteName('word/document.xml');
             $zip->addFromString('word/document.xml', $xml);
             $zip->close();
         }
     }
-    
 }
 

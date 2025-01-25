@@ -114,4 +114,4 @@ RUN apt-get update && apt-get -y --no-install-recommends install git \
 RUN touch /usr/local/etc/php/conf.d/uploads.ini \
     && echo "upload_max_filesize = 10M;" >> /usr/local/etc/php/conf.d/uploads.ini
 
-RUN composer require phpoffice/phpword:^0.14.0 --no-interaction --no-progress --no-suggest
+RUN composer require phpoffice/phpword --no-interaction --no-progress --no-suggest
