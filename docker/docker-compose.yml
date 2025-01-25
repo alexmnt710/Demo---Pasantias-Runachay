@@ -55,7 +55,18 @@ services:
   #   entrypoint: ['npm']
   #   networks:
   #     - laravel
-
+  python:
+    image: python:3.9
+    container_name: python
+    working_dir: /app
+    volumes:
+      - ./python:/app
+    ports:
+      - "5000:5000"
+    networks:
+      - laravel
+    command: ["python", "app.py"]
+    
 networks:
   laravel:
     name: laravel

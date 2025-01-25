@@ -23,13 +23,12 @@ class WordController extends BaseController
                 return Response::json(['error' => 'Error en la subida del archivo. Asegúrate de que sea un archivo Word válido.'], 400);
             }
 
-            // Crear directorio si no existe
+            // Guardar el archivo temporalmente en Laravel
             $storagePath = public_path('uploads');
             if (!file_exists($storagePath)) {
                 mkdir($storagePath, 0777, true);
             }
 
-            // Guardar archivo con un nombre único
             $filename = time() . '-' . preg_replace('/\s+/', '_', $file->getClientOriginalName());
             $filePath = $storagePath . '/' . $filename;
             $file->move($storagePath, $filename);
@@ -38,13 +37,10 @@ class WordController extends BaseController
                 return Response::json(['error' => 'No se pudo guardar el archivo correctamente.'], 500);
             }
 
-            // Reemplazar variables en el documento
-            $processedFilePath = $this->replaceVariablesInDocument($filePath, $userData);
+            // 📡 Enviar archivo al servicio en Python
+            $response = $this->sendToPythonService($filePath, $userData);
 
-            return Response::json([
-                'message' => 'Documento generado correctamente.',
-                'download_link' => url('uploads/' . basename($processedFilePath))
-            ]);
+            return Response::json($response);
 
         } catch (\Exception $e) {
             Log::error("Error en la subida del documento: " . $e->getMessage());
@@ -52,127 +48,41 @@ class WordController extends BaseController
         }
     }
 
-    public function replaceVariablesInDocument($filePath, $userData) {
-        try {
-            $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($filePath);
-    
-            // Obtener variables detectadas en el documento
-            $variables = $templateProcessor->getVariables();
-            Log::info('📌 Variables detectadas en la plantilla:', $variables);
-    
-            // Diccionario de reemplazo
-            $replacements = [
-                'user.period' => $userData['period'] ?? '',
-                'userperiod' => $userData['period'] ?? '',
-                'city' => $userData['contract']['city'] ?? '',
-                'day' => $userData['contract']['day_today'] ?? '',
-                'datetoday' => $userData['contract']['date_today'] ?? '',
-                'INSTITUCIONCOOWNERNAME' => $userData['institution']['co_owner_name'] ?? '',
-                'CITY' => $userData['contract']['city'] ?? ''
-            ];
-    
-            foreach ($variables as $variable) {
-                $normalizedVariable = strtolower(trim($variable));
-    
-                if (isset($replacements[$normalizedVariable])) {
-                    Log::info("🔄 Reemplazando: {$variable} → {$replacements[$normalizedVariable]}");
-                    $templateProcessor->setValue($variable, $replacements[$normalizedVariable]);
-                } else {
-                    Log::warning("⚠️ Variable detectada pero sin reemplazo en PHP: {$variable}");
-                }
-            }
-    
-            // ✅ Manejo de tablas
-            $this->replaceTableVariables($templateProcessor, $replacements);
-    
-            // Guardar documento procesado
-            $processedFilePath = public_path('uploads/' . time() . '-processed.docx');
-            $templateProcessor->saveAs($processedFilePath);
-    
-            if (!$this->isValidDocx($processedFilePath)) {
-                Log::warning("⚠️ Documento potencialmente corrupto, aplicando reemplazo forzado...");
-                $this->forceReplaceInDocx($processedFilePath, $replacements);
-            }
-    
-            Log::info("✅ Documento generado correctamente en: {$processedFilePath}");
-            return $processedFilePath;
-    
-        } catch (\Exception $e) {
-            Log::error("❌ Error al procesar el documento: " . $e->getMessage());
-            return Response::json(['error' => 'Error al procesar el documento: ' . $e->getMessage()], 500);
-        }
-    }
-    
     /**
-     * ✅ Reemplazo de Variables dentro de Tablas en el DOCX.
+     * 📡 Envía el archivo y datos del usuario al servicio de Python usando cURL (compatible con Laravel 4.2).
      */
-    private function replaceTableVariables($filePath, $replacements) {
-        try {
-            $zip = new \ZipArchive;
-    
-            if ($zip->open($filePath) === TRUE) {
-                $xml = $zip->getFromName('word/document.xml');
-    
-                if (!$xml) {
-                    Log::error("⚠️ No se pudo leer el XML del documento.");
-                    return;
-                }
-    
-                // Buscar y reemplazar variables dentro de tablas
-                foreach ($replacements as $key => $value) {
-                    $pattern = '/\$\{\s*' . preg_quote($key, '/') . '\s*\}/';
-                    $xml = preg_replace($pattern, $value, $xml);
-                }
-    
-                // Guardar cambios en el documento
-                $zip->deleteName('word/document.xml');
-                $zip->addFromString('word/document.xml', $xml);
-                $zip->close();
-                Log::info("✅ Variables en tablas reemplazadas correctamente.");
-    
-            } else {
-                Log::error("❌ No se pudo abrir el archivo DOCX.");
-            }
-    
-        } catch (\Exception $e) {
-            Log::error("⚠️ Error al reemplazar variables en tabla: " . $e->getMessage());
+    private function sendToPythonService($filePath, $userData) {
+        $pythonServiceUrl = 'http://python:5000/process';
+
+        $curl = curl_init();
+
+        $postFields = [
+            'file' => new \CurlFile($filePath, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', basename($filePath)),
+            'user_data' => json_encode($userData)
+        ];
+
+        curl_setopt_array($curl, [
+            CURLOPT_URL => $pythonServiceUrl,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => $postFields,
+            CURLOPT_HTTPHEADER => [
+                "Content-Type: multipart/form-data"
+            ]
+        ]);
+
+        $response = curl_exec($curl);
+        $error = curl_error($curl);
+        curl_close($curl);
+
+        if ($error) {
+            Log::error("Error al conectar con el servicio Python: " . $error);
+            return ['error' => 'No se pudo procesar el documento en el servicio externo.'];
         }
-    }
-    
-    
 
-    /**
-     * ✅ Verifica si un archivo .docx es válido usando ZipArchive.
-     */
-    private function isValidDocx($filePath) {
-        $zip = new \ZipArchive;
-        if ($zip->open($filePath) === TRUE) {
-            $isValid = ($zip->getFromName('word/document.xml') !== false);
-            $zip->close();
-            return $isValid;
-        }
-        return false;
-    }
-
-    /**
-     * ✅ Reemplazo forzado de variables en el XML del DOCX sin dañar la estructura.
-     */
-    private function forceReplaceInDocx($filePath, $replacements) {
-        $zip = new \ZipArchive;
-        if ($zip->open($filePath) === TRUE) {
-            $xml = $zip->getFromName('word/document.xml');
-
-            // Hacer reemplazo seguro en XML
-            foreach ($replacements as $key => $value) {
-                $pattern = '/\$\{\s*' . preg_quote($key, '/') . '\s*\}/';
-                $xml = preg_replace($pattern, $value, $xml);
-            }
-
-            // Actualizar documento sin corromper
-            $zip->deleteName('word/document.xml');
-            $zip->addFromString('word/document.xml', $xml);
-            $zip->close();
-        }
+        return json_decode($response, true);
     }
 }
+
+
 
