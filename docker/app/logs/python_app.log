@@ -1,0 +1,593 @@
+2025-01-25 20:14:58,565 - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2025-01-25 20:14:58,566 - INFO -  * Running on http://172.18.0.3:5000/ (Press CTRL+C to quit)
+2025-01-25 20:15:28,468 - INFO - 📂 Archivo recibido: /app/uploads/1737836128-plantilla.docx
+2025-01-25 20:15:28,468 - INFO - 📌 Datos del usuario:
+{
+    "id": 1,
+    "name": "John Doe",
+    "DNI": "1234567890",
+    "grade": "Bachillerato",
+    "period": "2025-2026",
+    "parent": {
+        "name": "Jane Doe",
+        "DNI": "0987654321",
+        "signature": "Firma de Jane Doe"
+    },
+    "institution": {
+        "full_name": "Instituci\u00f3n Educativa Nueva Pacto",
+        "sigla_name": "IENP",
+        "owner_name": "Lcda. Mar\u00eda P\u00e9rez",
+        "owner_DNI": "1122334455",
+        "co_owner_name": "Dr. Carlos G\u00f3mez",
+        "co_owner_DNI": "5566778899"
+    },
+    "contract": {
+        "city": "Quito",
+        "day": "Lunes",
+        "date": "21 de Enero de 2025"
+    }
+}
+2025-01-25 20:15:28,493 - INFO - 📌 Variables a reemplazar:
+2025-01-25 20:15:28,493 - INFO - {
+    "user.name": "John Doe",
+    "user.DNI": "1234567890",
+    "user.grade": "Bachillerato",
+    "user.period": "2025-2026",
+    "user.parent.name": "Jane Doe",
+    "user.parent.DNI": "0987654321",
+    "user.parent.signature": "Firma de Jane Doe",
+    "institution.full_name": "Instituci\u00f3n Educativa Nueva Pacto",
+    "institution.sigla_name": "IENP",
+    "institution.owner_name": "Lcda. Mar\u00eda P\u00e9rez",
+    "institution.owner_DNI": "1122334455",
+    "institution.co_owner_name": "Dr. Carlos G\u00f3mez",
+    "institution.co_owner_DNI": "5566778899",
+    "contract.city": "Quito",
+    "contract.day": "Lunes",
+    "contract.date": "21 de Enero de 2025"
+}
+2025-01-25 20:15:28,494 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:15:28,498 - INFO - 🔄 Reemplazando: user.name → John Doe
+2025-01-25 20:15:28,499 - INFO - 🔄 Reemplazando: user.DNI → 1234567890
+2025-01-25 20:15:28,499 - INFO - 🔄 Reemplazando: user.grade → Bachillerato
+2025-01-25 20:15:28,499 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:15:28,499 - INFO - 🔄 Reemplazando: user.parent.name → Jane Doe
+2025-01-25 20:15:28,500 - INFO - 🔄 Reemplazando: user.parent.DNI → 0987654321
+2025-01-25 20:15:28,500 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,500 - INFO - 🔄 Reemplazando: institution.sigla_name → IENP
+2025-01-25 20:15:28,500 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:15:28,500 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:15:28,501 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:15:28,501 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:15:28,501 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:15:28,503 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,504 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,506 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,508 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,509 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:15:28,509 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,510 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:15:28,511 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,511 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,512 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,513 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,517 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,517 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,521 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,527 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,533 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,536 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,543 - INFO - 🔄 Reemplazando: institution.sigla_name → IENP
+2025-01-25 20:15:28,546 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,547 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,551 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,553 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,554 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,555 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,557 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,562 - INFO - 🔄 Reemplazando: institution.sigla_name → IENP
+2025-01-25 20:15:28,563 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:15:28,563 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:15:28,567 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:15:28,567 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:15:28,568 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:15:28,569 - INFO - 🔄 Reemplazando: user.parent.DNI → 0987654321
+2025-01-25 20:15:28,569 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:15:28,570 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:15:28,571 - INFO - 🔄 Reemplazando: institution.co_owner_name → Dr. Carlos Gómez
+2025-01-25 20:15:28,572 - INFO - 🔄 Reemplazando: institution.co_owner_DNI → 5566778899
+2025-01-25 20:15:28,573 - INFO - 🔄 Reemplazando: user.parent.name → Jane Doe
+2025-01-25 20:15:28,573 - INFO - 🔄 Reemplazando: user.parent.DNI → 0987654321
+2025-01-25 20:15:28,574 - INFO - 🔄 Reemplazando: user.DNI → 1234567890
+2025-01-25 20:15:28,575 - INFO - 🔄 Reemplazando: user.grade → Bachillerato
+2025-01-25 20:15:28,579 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:15:28,579 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,580 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:15:28,580 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:15:28,581 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:15:28,581 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:15:28,582 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:15:28,583 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:15:28,583 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:15:28,583 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:15:28,585 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,586 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:15:28,587 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:15:28,587 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:15:28,588 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:15:28,601 - INFO - 🔍 Variables detectadas en el documento: {'user.grade', 'contract.date', 'institution.owner_DNI', 'contract.day', 'institution.co_owner_name', 'user.DNI', 'institution.co_owner_DNI', 'contract.city', 'institution.sigla_name', 'user.parent.DNI', 'institution.owner_name', 'institution.full_name', 'user.period', 'user.parent.name', 'user.name'}
+2025-01-25 20:15:28,624 - INFO - ✅ Documento guardado en: /app/processed/processed_1737836128-plantilla.docx
+2025-01-25 20:15:28,625 - INFO - 172.18.0.2 - - [25/Jan/2025 20:15:28] "POST /process HTTP/1.1" 200 -
+2025-01-25 20:18:33,013 - INFO - 📂 Archivo recibido: /app/uploads/1737836312-plantilla.docx
+2025-01-25 20:18:33,014 - INFO - 📌 Datos del usuario:
+{
+    "id": 1,
+    "name": "John Doe",
+    "DNI": "1234567890",
+    "grade": "Bachillerato",
+    "period": "2025-2026",
+    "parent": {
+        "name": "Jane Doe",
+        "DNI": "0987654321",
+        "signature": "Firma de Jane Doe"
+    },
+    "institution": {
+        "full_name": "Instituci\u00f3n Educativa Nueva Pacto",
+        "sigla_name": "IENP",
+        "owner_name": "Lcda. Mar\u00eda P\u00e9rez",
+        "owner_DNI": "1122334455",
+        "co_owner_name": "Dr. Carlos G\u00f3mez",
+        "co_owner_DNI": "5566778899"
+    },
+    "contract": {
+        "city": "Quito",
+        "day": "Lunes",
+        "date": "21 de Enero de 2025"
+    }
+}
+2025-01-25 20:18:33,036 - INFO - 📌 Variables a reemplazar:
+2025-01-25 20:18:33,037 - INFO - {
+    "user.name": "John Doe",
+    "user.DNI": "1234567890",
+    "user.grade": "Bachillerato",
+    "user.period": "2025-2026",
+    "user.parent.name": "Jane Doe",
+    "user.parent.DNI": "0987654321",
+    "user.parent.signature": "Firma de Jane Doe",
+    "institution.full_name": "Instituci\u00f3n Educativa Nueva Pacto",
+    "institution.sigla_name": "IENP",
+    "institution.owner_name": "Lcda. Mar\u00eda P\u00e9rez",
+    "institution.owner_DNI": "1122334455",
+    "institution.co_owner_name": "Dr. Carlos G\u00f3mez",
+    "institution.co_owner_DNI": "5566778899",
+    "contract.city": "Quito",
+    "contract.day": "Lunes",
+    "contract.date": "21 de Enero de 2025"
+}
+2025-01-25 20:18:33,038 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:18:33,042 - INFO - 🔄 Reemplazando: user.name → John Doe
+2025-01-25 20:18:33,042 - INFO - 🔄 Reemplazando: user.DNI → 1234567890
+2025-01-25 20:18:33,043 - INFO - 🔄 Reemplazando: user.grade → Bachillerato
+2025-01-25 20:18:33,043 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:18:33,043 - INFO - 🔄 Reemplazando: user.parent.name → Jane Doe
+2025-01-25 20:18:33,043 - INFO - 🔄 Reemplazando: user.parent.DNI → 0987654321
+2025-01-25 20:18:33,043 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,044 - INFO - 🔄 Reemplazando: institution.sigla_name → IENP
+2025-01-25 20:18:33,044 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:18:33,044 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:18:33,044 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:18:33,044 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:18:33,044 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:18:33,046 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,047 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,049 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,051 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,052 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:18:33,052 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,053 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:18:33,053 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,054 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,055 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,056 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,059 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,060 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,063 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,068 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,076 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,079 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,086 - INFO - 🔄 Reemplazando: institution.sigla_name → IENP
+2025-01-25 20:18:33,088 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,089 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,094 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,095 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,096 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,098 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,099 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,104 - INFO - 🔄 Reemplazando: institution.sigla_name → IENP
+2025-01-25 20:18:33,105 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:18:33,105 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:18:33,108 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:18:33,109 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:18:33,109 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:18:33,110 - INFO - 🔄 Reemplazando: user.parent.DNI → 0987654321
+2025-01-25 20:18:33,111 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:18:33,112 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:18:33,112 - INFO - 🔄 Reemplazando: institution.co_owner_name → Dr. Carlos Gómez
+2025-01-25 20:18:33,113 - INFO - 🔄 Reemplazando: institution.co_owner_DNI → 5566778899
+2025-01-25 20:18:33,114 - INFO - 🔄 Reemplazando: user.parent.name → Jane Doe
+2025-01-25 20:18:33,114 - INFO - 🔄 Reemplazando: user.parent.DNI → 0987654321
+2025-01-25 20:18:33,115 - INFO - 🔄 Reemplazando: user.DNI → 1234567890
+2025-01-25 20:18:33,115 - INFO - 🔄 Reemplazando: user.grade → Bachillerato
+2025-01-25 20:18:33,120 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:18:33,120 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,120 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:18:33,120 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:18:33,122 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:18:33,122 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:18:33,122 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:18:33,123 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:18:33,123 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:18:33,123 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:18:33,125 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,126 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:33,128 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:18:33,128 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:18:33,128 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:18:33,140 - INFO - 🔍 Variables detectadas en el documento: {'user.grade', 'contract.date', 'institution.owner_DNI', 'contract.day', 'institution.co_owner_name', 'user.DNI', 'institution.co_owner_DNI', 'contract.city', 'institution.sigla_name', 'user.parent.DNI', 'institution.owner_name', 'institution.full_name', 'user.period', 'user.parent.name', 'user.name'}
+2025-01-25 20:18:33,165 - INFO - ✅ Documento guardado en: /app/processed/processed_1737836312-plantilla.docx
+2025-01-25 20:18:33,166 - INFO - 172.18.0.2 - - [25/Jan/2025 20:18:33] "POST /process HTTP/1.1" 200 -
+2025-01-25 20:18:45,357 - INFO - 📂 Archivo recibido: /app/uploads/1737836325-plantilla.docx
+2025-01-25 20:18:45,357 - INFO - 📌 Datos del usuario:
+{
+    "id": 1,
+    "name": "John Doe",
+    "DNI": "1234567890",
+    "grade": "Bachillerato",
+    "period": "2025-2026",
+    "parent": {
+        "name": "Jane Doe",
+        "DNI": "0987654321",
+        "signature": "Firma de Jane Doe"
+    },
+    "institution": {
+        "full_name": "Instituci\u00f3n Educativa Nueva Pacto",
+        "sigla_name": "IENP",
+        "owner_name": "Lcda. Mar\u00eda P\u00e9rez",
+        "owner_DNI": "1122334455",
+        "co_owner_name": "Dr. Carlos G\u00f3mez",
+        "co_owner_DNI": "5566778899"
+    },
+    "contract": {
+        "city": "Quito",
+        "day": "Lunes",
+        "date": "21 de Enero de 2025"
+    }
+}
+2025-01-25 20:18:45,380 - INFO - 📌 Variables a reemplazar:
+2025-01-25 20:18:45,380 - INFO - {
+    "user.name": "John Doe",
+    "user.DNI": "1234567890",
+    "user.grade": "Bachillerato",
+    "user.period": "2025-2026",
+    "user.parent.name": "Jane Doe",
+    "user.parent.DNI": "0987654321",
+    "user.parent.signature": "Firma de Jane Doe",
+    "institution.full_name": "Instituci\u00f3n Educativa Nueva Pacto",
+    "institution.sigla_name": "IENP",
+    "institution.owner_name": "Lcda. Mar\u00eda P\u00e9rez",
+    "institution.owner_DNI": "1122334455",
+    "institution.co_owner_name": "Dr. Carlos G\u00f3mez",
+    "institution.co_owner_DNI": "5566778899",
+    "contract.city": "Quito",
+    "contract.day": "Lunes",
+    "contract.date": "21 de Enero de 2025"
+}
+2025-01-25 20:18:45,381 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:18:45,386 - INFO - 🔄 Reemplazando: user.name → John Doe
+2025-01-25 20:18:45,386 - INFO - 🔄 Reemplazando: user.DNI → 1234567890
+2025-01-25 20:18:45,387 - INFO - 🔄 Reemplazando: user.grade → Bachillerato
+2025-01-25 20:18:45,387 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:18:45,387 - INFO - 🔄 Reemplazando: user.parent.name → Jane Doe
+2025-01-25 20:18:45,387 - INFO - 🔄 Reemplazando: user.parent.DNI → 0987654321
+2025-01-25 20:18:45,387 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,387 - INFO - 🔄 Reemplazando: institution.sigla_name → IENP
+2025-01-25 20:18:45,388 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:18:45,388 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:18:45,388 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:18:45,388 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:18:45,388 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:18:45,390 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,391 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,393 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,394 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,396 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:18:45,396 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,397 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:18:45,398 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,399 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,400 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,401 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,404 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,405 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,408 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,414 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,420 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,423 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,430 - INFO - 🔄 Reemplazando: institution.sigla_name → IENP
+2025-01-25 20:18:45,433 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,434 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,438 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,440 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,441 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,442 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,443 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,448 - INFO - 🔄 Reemplazando: institution.sigla_name → IENP
+2025-01-25 20:18:45,448 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:18:45,448 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:18:45,452 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:18:45,452 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:18:45,452 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:18:45,453 - INFO - 🔄 Reemplazando: user.parent.DNI → 0987654321
+2025-01-25 20:18:45,454 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:18:45,454 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:18:45,455 - INFO - 🔄 Reemplazando: institution.co_owner_name → Dr. Carlos Gómez
+2025-01-25 20:18:45,455 - INFO - 🔄 Reemplazando: institution.co_owner_DNI → 5566778899
+2025-01-25 20:18:45,456 - INFO - 🔄 Reemplazando: user.parent.name → Jane Doe
+2025-01-25 20:18:45,457 - INFO - 🔄 Reemplazando: user.parent.DNI → 0987654321
+2025-01-25 20:18:45,457 - INFO - 🔄 Reemplazando: user.DNI → 1234567890
+2025-01-25 20:18:45,457 - INFO - 🔄 Reemplazando: user.grade → Bachillerato
+2025-01-25 20:18:45,462 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:18:45,462 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,462 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:18:45,462 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:18:45,463 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:18:45,464 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:18:45,464 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:18:45,465 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:18:45,465 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:18:45,466 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:18:45,468 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,468 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:18:45,470 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:18:45,470 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:18:45,470 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:18:45,482 - INFO - 🔍 Variables detectadas en el documento: {'user.grade', 'contract.date', 'institution.owner_DNI', 'contract.day', 'institution.co_owner_name', 'user.DNI', 'institution.co_owner_DNI', 'contract.city', 'institution.sigla_name', 'user.parent.DNI', 'institution.owner_name', 'institution.full_name', 'user.period', 'user.parent.name', 'user.name'}
+2025-01-25 20:18:45,513 - INFO - ✅ Documento guardado en: /app/processed/processed_1737836325-plantilla.docx
+2025-01-25 20:18:45,513 - INFO - 172.18.0.2 - - [25/Jan/2025 20:18:45] "POST /process HTTP/1.1" 200 -
+2025-01-25 20:22:28,126 - INFO - 📂 Archivo recibido: /app/uploads/1737836548-plantillaManosa.docx
+2025-01-25 20:22:28,127 - INFO - 📌 Datos del usuario:
+{
+    "id": 1,
+    "name": "John Doe",
+    "DNI": "1234567890",
+    "grade": "Bachillerato",
+    "period": "2025-2026",
+    "parent": {
+        "name": "Jane Doe",
+        "DNI": "0987654321",
+        "signature": "Firma de Jane Doe"
+    },
+    "institution": {
+        "full_name": "Instituci\u00f3n Educativa Nueva Pacto",
+        "sigla_name": "IENP",
+        "owner_name": "Lcda. Mar\u00eda P\u00e9rez",
+        "owner_DNI": "1122334455",
+        "co_owner_name": "Dr. Carlos G\u00f3mez",
+        "co_owner_DNI": "5566778899"
+    },
+    "contract": {
+        "city": "Quito",
+        "day": "Lunes",
+        "date": "21 de Enero de 2025"
+    }
+}
+2025-01-25 20:22:28,148 - INFO - 📌 Variables a reemplazar:
+2025-01-25 20:22:28,148 - INFO - {
+    "user.name": "John Doe",
+    "user.DNI": "1234567890",
+    "user.grade": "Bachillerato",
+    "user.period": "2025-2026",
+    "user.parent.name": "Jane Doe",
+    "user.parent.DNI": "0987654321",
+    "user.parent.signature": "Firma de Jane Doe",
+    "institution.full_name": "Instituci\u00f3n Educativa Nueva Pacto",
+    "institution.sigla_name": "IENP",
+    "institution.owner_name": "Lcda. Mar\u00eda P\u00e9rez",
+    "institution.owner_DNI": "1122334455",
+    "institution.co_owner_name": "Dr. Carlos G\u00f3mez",
+    "institution.co_owner_DNI": "5566778899",
+    "contract.city": "Quito",
+    "contract.day": "Lunes",
+    "contract.date": "21 de Enero de 2025"
+}
+2025-01-25 20:22:28,149 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:22:28,154 - INFO - 🔄 Reemplazando: user.name → John Doe
+2025-01-25 20:22:28,154 - INFO - 🔄 Reemplazando: user.DNI → 1234567890
+2025-01-25 20:22:28,154 - INFO - 🔄 Reemplazando: user.grade → Bachillerato
+2025-01-25 20:22:28,155 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:22:28,155 - INFO - 🔄 Reemplazando: user.parent.name → Jane Doe
+2025-01-25 20:22:28,155 - INFO - 🔄 Reemplazando: user.parent.DNI → 0987654321
+2025-01-25 20:22:28,155 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,156 - INFO - 🔄 Reemplazando: institution.sigla_name → IENP
+2025-01-25 20:22:28,156 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:22:28,156 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:22:28,156 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:22:28,157 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:22:28,157 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:22:28,159 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,160 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,161 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,163 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,164 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:22:28,165 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,166 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:22:28,166 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,167 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,168 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,169 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,172 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,173 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,177 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,182 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,189 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,191 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,198 - INFO - 🔄 Reemplazando: institution.sigla_name → IENP
+2025-01-25 20:22:28,200 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,201 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,205 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,207 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,208 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,209 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,211 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,215 - INFO - 🔄 Reemplazando: institution.sigla_name → IENP
+2025-01-25 20:22:28,215 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:22:28,216 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:22:28,219 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:22:28,219 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:22:28,220 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:22:28,221 - INFO - 🔄 Reemplazando: user.parent.DNI → 0987654321
+2025-01-25 20:22:28,221 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:22:28,222 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:22:28,223 - INFO - 🔄 Reemplazando: institution.co_owner_name → Dr. Carlos Gómez
+2025-01-25 20:22:28,223 - INFO - 🔄 Reemplazando: institution.co_owner_DNI → 5566778899
+2025-01-25 20:22:28,224 - INFO - 🔄 Reemplazando: user.parent.name → Jane Doe
+2025-01-25 20:22:28,224 - INFO - 🔄 Reemplazando: user.parent.DNI → 0987654321
+2025-01-25 20:22:28,225 - INFO - 🔄 Reemplazando: user.DNI → 1234567890
+2025-01-25 20:22:28,225 - INFO - 🔄 Reemplazando: user.grade → Bachillerato
+2025-01-25 20:22:28,229 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:22:28,230 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,230 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:22:28,230 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:22:28,231 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:22:28,232 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:22:28,232 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:22:28,233 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:22:28,233 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:22:28,233 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:22:28,235 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,236 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:22:28,237 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:22:28,237 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:22:28,238 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:22:28,249 - INFO - 🔍 Variables detectadas en el documento: {'user.grade', 'contract.date', 'institution.owner_DNI', 'contract.day', 'institution.co_owner_name', 'user.DNI', 'institution.co_owner_DNI', 'contract.city', 'institution.sigla_name', 'user.parent.DNI', 'institution.owner_name', 'institution.full_name', 'user.period', 'user.parent.name', 'user.name'}
+2025-01-25 20:22:28,271 - INFO - ✅ Documento guardado en: /app/processed/processed_1737836548-plantillaManosa.docx
+2025-01-25 20:22:28,272 - INFO - 172.18.0.2 - - [25/Jan/2025 20:22:28] "POST /process HTTP/1.1" 200 -
+2025-01-25 20:23:34,587 - INFO - 📂 Archivo recibido: /app/uploads/1737836614-plantillaManosa.docx
+2025-01-25 20:23:34,588 - INFO - 📌 Datos del usuario:
+{
+    "id": 1,
+    "name": "John Doe",
+    "DNI": "1234567890",
+    "grade": "Bachillerato",
+    "period": "2025-2026",
+    "parent": {
+        "name": "Jane Doe",
+        "DNI": "0987654321",
+        "signature": "Firma de Jane Doe"
+    },
+    "institution": {
+        "full_name": "Instituci\u00f3n Educativa Nueva Pacto",
+        "sigla_name": "IENP",
+        "owner_name": "Lcda. Mar\u00eda P\u00e9rez",
+        "owner_DNI": "1122334455",
+        "co_owner_name": "Dr. Carlos G\u00f3mez",
+        "co_owner_DNI": "5566778899"
+    },
+    "contract": {
+        "city": "Quito",
+        "day": "Lunes",
+        "date": "21 de Enero de 2025"
+    }
+}
+2025-01-25 20:23:34,620 - INFO - 📌 Variables a reemplazar:
+2025-01-25 20:23:34,621 - INFO - {
+    "user.name": "John Doe",
+    "user.DNI": "1234567890",
+    "user.grade": "Bachillerato",
+    "user.period": "2025-2026",
+    "user.parent.name": "Jane Doe",
+    "user.parent.DNI": "0987654321",
+    "user.parent.signature": "Firma de Jane Doe",
+    "institution.full_name": "Instituci\u00f3n Educativa Nueva Pacto",
+    "institution.sigla_name": "IENP",
+    "institution.owner_name": "Lcda. Mar\u00eda P\u00e9rez",
+    "institution.owner_DNI": "1122334455",
+    "institution.co_owner_name": "Dr. Carlos G\u00f3mez",
+    "institution.co_owner_DNI": "5566778899",
+    "contract.city": "Quito",
+    "contract.day": "Lunes",
+    "contract.date": "21 de Enero de 2025"
+}
+2025-01-25 20:23:34,622 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:23:34,627 - INFO - 🔄 Reemplazando: user.name → John Doe
+2025-01-25 20:23:34,628 - INFO - 🔄 Reemplazando: user.DNI → 1234567890
+2025-01-25 20:23:34,628 - INFO - 🔄 Reemplazando: user.grade → Bachillerato
+2025-01-25 20:23:34,629 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:23:34,629 - INFO - 🔄 Reemplazando: user.parent.name → Jane Doe
+2025-01-25 20:23:34,629 - INFO - 🔄 Reemplazando: user.parent.DNI → 0987654321
+2025-01-25 20:23:34,629 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,630 - INFO - 🔄 Reemplazando: institution.sigla_name → IENP
+2025-01-25 20:23:34,630 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:23:34,630 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:23:34,630 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:23:34,631 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:23:34,631 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:23:34,633 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,634 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,636 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,638 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,640 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:23:34,640 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,642 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:23:34,642 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,643 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,644 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,645 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,650 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,650 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,655 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,661 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,668 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,671 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,679 - INFO - 🔄 Reemplazando: institution.sigla_name → IENP
+2025-01-25 20:23:34,683 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,684 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,689 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,691 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,693 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,694 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,697 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,702 - INFO - 🔄 Reemplazando: institution.sigla_name → IENP
+2025-01-25 20:23:34,703 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:23:34,703 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:23:34,707 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:23:34,707 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:23:34,708 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:23:34,709 - INFO - 🔄 Reemplazando: user.parent.DNI → 0987654321
+2025-01-25 20:23:34,710 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:23:34,711 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:23:34,711 - INFO - 🔄 Reemplazando: institution.co_owner_name → Dr. Carlos Gómez
+2025-01-25 20:23:34,712 - INFO - 🔄 Reemplazando: institution.co_owner_DNI → 5566778899
+2025-01-25 20:23:34,713 - INFO - 🔄 Reemplazando: user.parent.name → Jane Doe
+2025-01-25 20:23:34,714 - INFO - 🔄 Reemplazando: user.parent.DNI → 0987654321
+2025-01-25 20:23:34,714 - INFO - 🔄 Reemplazando: user.DNI → 1234567890
+2025-01-25 20:23:34,715 - INFO - 🔄 Reemplazando: user.grade → Bachillerato
+2025-01-25 20:23:34,720 - INFO - 🔄 Reemplazando: user.period → 2025-2026
+2025-01-25 20:23:34,720 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,720 - INFO - 🔄 Reemplazando: institution.owner_name → Lcda. María Pérez
+2025-01-25 20:23:34,721 - INFO - 🔄 Reemplazando: institution.owner_DNI → 1122334455
+2025-01-25 20:23:34,722 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:23:34,722 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:23:34,722 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:23:34,723 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:23:34,724 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:23:34,724 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:23:34,726 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,727 - INFO - 🔄 Reemplazando: institution.full_name → Institución Educativa Nueva Pacto
+2025-01-25 20:23:34,729 - INFO - 🔄 Reemplazando: contract.city → Quito
+2025-01-25 20:23:34,729 - INFO - 🔄 Reemplazando: contract.day → Lunes
+2025-01-25 20:23:34,729 - INFO - 🔄 Reemplazando: contract.date → 21 de Enero de 2025
+2025-01-25 20:23:34,744 - INFO - 🔍 Variables detectadas en el documento: {'user.grade', 'contract.date', 'institution.owner_DNI', 'contract.day', 'institution.co_owner_name', 'user.DNI', 'institution.co_owner_DNI', 'contract.city', 'institution.sigla_name', 'user.parent.DNI', 'institution.owner_name', 'institution.full_name', 'user.period', 'user.parent.name', 'user.name'}
+2025-01-25 20:23:34,776 - INFO - ✅ Documento guardado en: /app/processed/processed_1737836614-plantillaManosa.docx
+2025-01-25 20:23:34,776 - INFO - 172.18.0.2 - - [25/Jan/2025 20:23:34] "POST /process HTTP/1.1" 200 -

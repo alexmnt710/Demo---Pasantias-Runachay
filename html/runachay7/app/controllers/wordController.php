@@ -23,7 +23,6 @@ class WordController extends BaseController
                 return Response::json(['error' => 'Error en la subida del archivo. Asegúrate de que sea un archivo Word válido.'], 400);
             }
 
-            // Guardar el archivo temporalmente en Laravel
             $storagePath = public_path('uploads');
             if (!file_exists($storagePath)) {
                 mkdir($storagePath, 0777, true);
@@ -37,7 +36,6 @@ class WordController extends BaseController
                 return Response::json(['error' => 'No se pudo guardar el archivo correctamente.'], 500);
             }
 
-            // 📡 Enviar archivo al servicio en Python
             $response = $this->sendToPythonService($filePath, $userData);
 
             return Response::json($response);
@@ -48,9 +46,6 @@ class WordController extends BaseController
         }
     }
 
-    /**
-     * 📡 Envía el archivo y datos del usuario al servicio de Python usando cURL (compatible con Laravel 4.2).
-     */
     private function sendToPythonService($filePath, $userData) {
         $pythonServiceUrl = 'http://python:5000/process';
 

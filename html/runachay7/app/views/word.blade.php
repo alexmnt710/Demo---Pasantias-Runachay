@@ -162,8 +162,8 @@
                                 },
                                 contract: {
                                     city: "Quito",
-                                    day_today: "Lunes",
-                                    date_today: "21 de Enero de 2025"
+                                    day: "Lunes",
+                                    date: "21 de Enero de 2025"
                                 }
                             },
                             {
@@ -187,8 +187,8 @@
                                 },
                                 contract: {
                                     city: "Guayaquil",
-                                    day_today: "22",
-                                    date_today: "22 de Enero de 2025"
+                                    day: "Miercoles",
+                                    date: "22 de Enero de 2025"
                                 }
                             }
                         ];

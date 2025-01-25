@@ -56,16 +56,16 @@ services:
   #   networks:
   #     - laravel
   python:
-    image: python:3.9
-    container_name: python
-    working_dir: /app
+    build: ./app
+    container_name: python_converter
     volumes:
-      - ./python:/app
+      - ./app:/app  # Código Python
+      - ./../html/runachay7/public/uploads:/app/uploads  # 🔹 Python ahora usa la misma carpeta de Laravel
+    working_dir: /app
     ports:
       - "5000:5000"
     networks:
       - laravel
-    command: ["python", "app.py"]
     
 networks:
   laravel:
