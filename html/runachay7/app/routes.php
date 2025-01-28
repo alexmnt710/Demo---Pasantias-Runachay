@@ -39,3 +39,9 @@ Route::post('/send-mensage-whs',
 	'BotWhatsappController@sendMensageImage'
 
 );
+
+Route::get('/demo-ws', function()
+{
+
+	return View::make('ws');
+});
